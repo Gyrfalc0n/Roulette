@@ -123,9 +123,8 @@ public class Roulette {
 	
 	public static void jeu() {
 		do {
-			tirage = tirage();
 			count++;
-		} while (!is_win(tirage));
+		} while (!tirage());
 		for (int i = 1; i<count; i++) {
 			mise_finale = mise_finale * multiplier;
 			depense += mise_finale;
@@ -139,16 +138,13 @@ public class Roulette {
 	}
 	
 	
-	public static int tirage() {
-		int tirage = ThreadLocalRandom.current().nextInt(0, 36);
-		return tirage;
-	}
-	
-	public static boolean is_win(int value) {
-		if (value % 2 == 0) { //win calculée sur un chiffre pair
+	public static boolean tirage() {
+		int tirage = ThreadLocalRandom.current().nextInt(1, 10000);
+		if (tirage <= 4864) { // proba pair ou impair = 48,64% -- le 0 n'est pas dedans)
 			return true;
 		}
 		return false;
+		
 	}
 
 }
