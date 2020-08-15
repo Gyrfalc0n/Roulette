@@ -25,7 +25,7 @@ public class Roulette {
 	
 
 	public static void main(String[] args) {
-		for (int i = 0; i<5000000; i++) {
+		for (int i = 0; i<1000000; i++) {
 			game_limit();
 			compte++;
 		}
